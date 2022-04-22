@@ -9,16 +9,15 @@ fn main() {
         numbers.push(u64::from_str(&arg)
                      .expect("error parsing argument"));
     }
+    // If no numbers are entered report back to the user that they need to try and run the application again with numbers in the command.
     if numbers.len() == 0 {
-        eprintln!("usage: gcd NUMBER ...");
+        eprintln!("re-run the application with numbers");
         std::process::exit(1);
     }
     let mut d = numbers[0];
     for m in &numbers[1..] {
         d = gcd(d, *m);
-    }
-    println!("The greatest common divisor of {:?} is {}",
-             numbers, d);
+    }println!("The greatest common divisor of {:?} is {}", numbers, d);
 }
 
 
